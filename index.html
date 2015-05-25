@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="utf-8">
+	<title>TodoIt</title>
+	<link rel="stylesheet" href="css/normalize.css"/>
+	<link rel="stylesheet" href="css/foundation.css"/>
+	<link rel="stylesheet" href="css/app.css"/>
+	<script src="https://rawgithub.com/wanasit/chrono/master/chrono.min.js"></script>
+	<meta name="viewport" content="width=device-width">
+</head>
+<body ng-controller="FrameController">
+
+	<div ng-controller="DashboardController">
+		<h1>{{today}}</h1>
+		<h2>Welcome back {{name}}</h2>
+		<input type="text" ng-model="entryInput" placeholder="NewEntry"/>
+		<ul>
+			<li><a ng-click='keepDate=dateFilters["all"]'>All</a></li>
+			<li><a ng-click='keepDate=dateFilters["today"]'>Today</a></li>
+			<li><a ng-click='keepDate=dateFilters["tommorrow"]'>Tommorrow</a></li>
+		</ul>
+		<ul>
+			<li ng-repeat="events in events | filter:excludeByDate">
+				{{ event.summary }}
+			</li>
+		</ul>
+	</div>
+
+	<!-- Library files-->
+	<script src="lib/angular.js"></script>
+	<script src="lib/angular-route.js"></script>
+	<!-- App files-->
+	<script src="js/filters.js"></script>
+	<script src="js/controllers.js"></script>
+	<script src="js/directives.js"></script>
+	<script src="js/services.js"></script>
+	<script src="js/app.js"></script>
+</body>
+</html>
